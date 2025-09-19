@@ -15,10 +15,10 @@ export default function StudentDashboard({ onBack }: StudentDashboardProps) {
   const semesterTotal = 85;
   
   const subjectData = [
-    { name: 'Mathematics', value: 85, color: '#10b981' },
-    { name: 'Physics', value: 72, color: '#f59e0b' },
-    { name: 'Chemistry', value: 90, color: '#8b5cf6' },
-    { name: 'Biology', value: 68, color: '#ef4444' },
+    { name: 'AI', value: 85, color: '#10b981' },
+    { name: 'Deep Learning', value: 72, color: '#f59e0b' },
+    { name: 'Data Analytics', value: 90, color: '#8b5cf6' },
+    { name: 'DAA', value: 68, color: '#ef4444' },
   ];
   
   const weeklyData = [

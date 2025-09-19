@@ -15,9 +15,9 @@ export default function KioskView({ onBack }: KioskViewProps) {
 
   // Mock session data
   const sessionInfo = {
-    subject: "Computer Science 101",
-    class: "Section A",
-    faculty: "Prof. Smith",
+    subject: "Artificial Intelligence",
+    class: "Section A", 
+    faculty: "Prof. Ahmad",
     time: "9:00 AM - 10:00 AM"
   };
 
@@ -31,11 +31,11 @@ export default function KioskView({ onBack }: KioskViewProps) {
 
   // Mock pending students for auto-scroll
   const pendingStudents = [
-    "Alice Johnson (CS001)",
-    "Bob Smith (CS002)", 
-    "Charlie Brown (CS003)",
-    "Diana Prince (CS004)",
-    "Eve Wilson (CS005)",
+    "Mohammad Zaid (CS001)",
+    "Mohammad Shoaib (CS002)", 
+    "Shivam Mishra (CS003)",
+    "Shubham Pal (CS004)",
+    "Umra Hashmi (CS005)",
   ];
 
   const handleStartSession = () => {
@@ -45,7 +45,7 @@ export default function KioskView({ onBack }: KioskViewProps) {
 
   const handleFaceDetection = () => {
     // Simulate face detection
-    const mockStudent = "John Doe";
+    const mockStudent = "Mohammad Zaid";
     setCurrentStudent(mockStudent);
     setTimeout(() => {
       setCurrentStudent(null);

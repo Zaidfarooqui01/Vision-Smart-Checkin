@@ -27,12 +27,12 @@ export default function FacultyView({ onBack }: FacultyViewProps) {
 
   // Mock student data
   const students = [
-    { id: 1, name: "Alice Johnson", rollNo: "CS001", status: "present", time: "09:00 AM" },
-    { id: 2, name: "Bob Smith", rollNo: "CS002", status: "late", time: "09:15 AM" },
-    { id: 3, name: "Charlie Brown", rollNo: "CS003", status: "absent", time: "-" },
-    { id: 4, name: "Diana Prince", rollNo: "CS004", status: "present", time: "09:02 AM" },
-    { id: 5, name: "Eve Wilson", rollNo: "CS005", status: "pending", time: "-" },
-    { id: 6, name: "Frank Miller", rollNo: "CS006", status: "present", time: "08:58 AM" },
+    { id: 1, name: "Mohammad Zaid", rollNo: "CS001", status: "present", time: "09:00 AM" },
+    { id: 2, name: "Mohammad Shoaib", rollNo: "CS002", status: "late", time: "09:15 AM" },
+    { id: 3, name: "Shivam Mishra", rollNo: "CS003", status: "absent", time: "-" },
+    { id: 4, name: "Shubham Pal", rollNo: "CS004", status: "present", time: "09:02 AM" },
+    { id: 5, name: "Umra Hashmi", rollNo: "CS005", status: "pending", time: "-" },
+    { id: 6, name: "Arshad Khan", rollNo: "CS006", status: "present", time: "08:58 AM" },
   ];
 
   const pendingStudents = students.filter(s => s.status === "pending");
@@ -45,9 +45,9 @@ export default function FacultyView({ onBack }: FacultyViewProps) {
   ];
 
   const defaulterList = [
-    { name: "Charlie Brown", percentage: 45, missedClasses: 12 },
-    { name: "David Lee", percentage: 52, missedClasses: 10 },
-    { name: "Grace Kim", percentage: 58, missedClasses: 8 },
+    { name: "Shivam Mishra", percentage: 45, missedClasses: 12 },
+    { name: "Rajesh Kumar", percentage: 52, missedClasses: 10 },
+    { name: "Priya Sharma", percentage: 58, missedClasses: 8 },
   ];
 
   const getStatusIcon = (status: string) => {
@@ -94,7 +94,7 @@ export default function FacultyView({ onBack }: FacultyViewProps) {
             </Button>
             <div>
               <h1 className="text-3xl font-bold text-foreground">Faculty Dashboard</h1>
-              <p className="text-muted-foreground">Mathematics - Section A - Period 2 (9:00-10:00 AM)</p>
+              <p className="text-muted-foreground">Artificial Intelligence - Section A - Period 2 (9:00-10:00 AM)</p>
             </div>
           </div>
           <Badge className="bg-role-faculty text-white" data-testid="badge-role">

@@ -198,7 +198,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getAttendanceByDateRange(studentId: string, startDate: Date, endDate: Date): Promise<AttendanceRecord[]> {
-    return await db.select().from(attendanceRecords)
+    return await db.select(attendanceRecords).from(attendanceRecords)
       .innerJoin(sessions, eq(attendanceRecords.sessionId, sessions.id))
       .where(and(
         eq(attendanceRecords.studentId, studentId),
@@ -239,9 +239,9 @@ export class DatabaseStorage implements IStorage {
   async getAttendanceDefaulters(threshold: number = 75): Promise<{ studentId: string; name: string; percentage: number; missedClasses: number }[]> {
     // Mock implementation - would need complex SQL for real calculation
     return [
-      { studentId: "1", name: "Charlie Brown", percentage: 45, missedClasses: 12 },
-      { studentId: "2", name: "David Lee", percentage: 52, missedClasses: 10 },
-      { studentId: "3", name: "Grace Kim", percentage: 58, missedClasses: 8 },
+      { studentId: "1", name: "Shivam Mishra", percentage: 45, missedClasses: 12 },
+      { studentId: "2", name: "Rajesh Kumar", percentage: 52, missedClasses: 10 },
+      { studentId: "3", name: "Priya Sharma", percentage: 58, missedClasses: 8 },
     ];
   }
 
