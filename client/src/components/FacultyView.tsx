@@ -22,20 +22,40 @@ interface FacultyViewProps {
 
 export default function FacultyView({ onBack }: FacultyViewProps) {
   const [sessionActive, setSessionActive] = useState(false);
-  const [markedCount, setMarkedCount] = useState(32);
   const totalStudents = 40;
 
-  // Mock student data
-  const students = [
+  // Mock student data with state management
+  const [students, setStudents] = useState([
     { id: 1, name: "Mohammad Zaid", rollNo: "CS001", status: "present", time: "09:00 AM" },
     { id: 2, name: "Mohammad Shoaib", rollNo: "CS002", status: "late", time: "09:15 AM" },
     { id: 3, name: "Shivam Mishra", rollNo: "CS003", status: "absent", time: "-" },
     { id: 4, name: "Shubham Pal", rollNo: "CS004", status: "present", time: "09:02 AM" },
     { id: 5, name: "Umra Hashmi", rollNo: "CS005", status: "pending", time: "-" },
     { id: 6, name: "Arshad Khan", rollNo: "CS006", status: "present", time: "08:58 AM" },
-  ];
+  ]);
 
   const pendingStudents = students.filter(s => s.status === "pending");
+  const markedCount = students.filter(s => s.status === "present" || s.status === "late").length;
+
+  const handleMarkPresent = (studentId: number) => {
+    setStudents(prev => prev.map(student => 
+      student.id === studentId 
+        ? { ...student, status: "present", time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }
+        : student
+    ));
+    const student = students.find(s => s.id === studentId);
+    console.log(`Mark ${student?.name} present`);
+  };
+
+  const handleMarkAbsent = (studentId: number) => {
+    setStudents(prev => prev.map(student => 
+      student.id === studentId 
+        ? { ...student, status: "absent", time: "-" }
+        : student
+    ));
+    const student = students.find(s => s.id === studentId);
+    console.log(`Mark ${student?.name} absent`);
+  };
   
   const punctualityData = [
     { week: 'Week 1', onTime: 85, late: 12, absent: 3 },
@@ -207,7 +227,7 @@ export default function FacultyView({ onBack }: FacultyViewProps) {
                         <div className="flex space-x-2">
                           <Button 
                             size="sm" 
-                            onClick={() => console.log(`Mark ${student.name} present`)}
+                            onClick={() => handleMarkPresent(student.id)}
                             data-testid={`button-mark-present-${student.id}`}
                           >
                             Present
@@ -215,7 +235,7 @@ export default function FacultyView({ onBack }: FacultyViewProps) {
                           <Button 
                             size="sm" 
                             variant="outline"
-                            onClick={() => console.log(`Mark ${student.name} absent`)}
+                            onClick={() => handleMarkAbsent(student.id)}
                             data-testid={`button-mark-absent-${student.id}`}
                           >
                             Absent
