@@ -198,7 +198,17 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getAttendanceByDateRange(studentId: string, startDate: Date, endDate: Date): Promise<AttendanceRecord[]> {
-    return await db.select(attendanceRecords).from(attendanceRecords)
+    return await db.select({
+      id: attendanceRecords.id,
+      sessionId: attendanceRecords.sessionId,
+      studentId: attendanceRecords.studentId,
+      status: attendanceRecords.status,
+      markedAt: attendanceRecords.markedAt,
+      markedBy: attendanceRecords.markedBy,
+      method: attendanceRecords.method,
+      isProxy: attendanceRecords.isProxy,
+      createdAt: attendanceRecords.createdAt
+    }).from(attendanceRecords)
       .innerJoin(sessions, eq(attendanceRecords.sessionId, sessions.id))
       .where(and(
         eq(attendanceRecords.studentId, studentId),
