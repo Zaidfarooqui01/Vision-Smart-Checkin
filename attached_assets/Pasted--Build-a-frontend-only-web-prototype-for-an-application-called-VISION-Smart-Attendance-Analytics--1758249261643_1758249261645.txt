@@ -1,0 +1,121 @@
+"Build a frontend-only web prototype for an application called VISION (Smart Attendance & Analytics System).
+
+Requirements:
+
+Role Selection
+
+On the home page, show 4 buttons: Student, Faculty, Admin, Kiosk.
+
+Clicking a button should switch the view to that role’s dashboard.
+
+No login/authentication needed.
+
+Student Dashboard
+
+Header: “Today’s Attendance Status.”
+
+Show a green tick, red cross, or yellow dot depending on mock attendance data.
+
+Quick stats: subject % and semester total.
+
+Charts (use sample data):
+
+Pie chart → subject-wise %
+
+Bar chart → last 7 days
+
+Heatmap calendar → monthly view
+
+Line chart → semester progress
+
+Tip card: “Attend 3 more classes to reach 75%.”
+
+Error state placeholders: “Attendance not yet synced.”, “Enrollment pending.”
+
+Buttons: “Request Leave (upload proof placeholder)” and “Export Self-Report (download CSV/PDF placeholder).”
+
+Faculty View
+
+Session screen with subject, class, and period time.
+
+Live counter (mock: 32/40 marked).
+
+List of students with statuses (present/late/absent).
+
+Pending tab with unmarked students.
+
+Quick actions (dropdown buttons): mark disciplinary absent, correct entry, cancel/transfer class.
+
+Error state placeholders: camera not responding, offline sync later.
+
+Faculty Dashboard:
+
+Defaulter list.
+
+Punctuality trends chart.
+
+One-click export placeholder (CSV/Excel).
+
+Admin Dashboard
+
+Top KPIs: % automated vs manual entries, avg marking time, proxy fails caught.
+
+Charts with mock data:
+
+Dept-wise bar graph
+
+Cohort heatmap (problem slots)
+
+Defaulter distribution
+
+Headcount mode: mock tally per building/class.
+
+Error state placeholders: sync errors banner, unusual access alert.
+
+Tools section:
+
+Audit log viewer placeholder
+
+Roster import/export placeholder
+
+Settings with liveness threshold, late cutoff, export schedule
+
+Kiosk View
+
+Session start screen: auto-loads subject, class, and faculty.
+
+Start session button (mock).
+
+Attendance flow with:
+
+Live camera placeholder with bounding box + popup name.
+
+Green tick for present, red warning for wrong class.
+
+Fallback QR button (mock).
+
+Live counter with mock values (e.g., Present: 25 | Late: 3 | Absent: 12).
+
+Pending list auto-scroll.
+
+Error states: no internet → storing offline, sync complete.
+
+Technical Guidelines
+
+Use React + Tailwind CSS for layout and styling.
+
+Use a charting library like Recharts or Chart.js for analytics.
+
+Mock data should be hardcoded inside the app (no backend).
+
+Keep UI modern, clean, and responsive.
+
+Each role view should be a separate React component.
+
+Goal
+
+This is a prototype only, not a real functional system.
+
+Focus on visuals and analytics dashboards with sample data.
+
+Ensure switching between dashboards works smoothly via the role buttons."
